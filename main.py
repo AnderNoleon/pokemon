@@ -1,10 +1,11 @@
 #comiendo
+from pokemon import Pokemon
 
+nombre = input('Cual es su nombre ')
+pokemon_inicial = int(input('Cual sera su pokemon inicial - 1)Bulbasaur 2)Charmander  3)Squirtle '))
+apodo_pokemon = input('Ingrese apodo al pokemon incial  ')
 
-nombre = input('Cual es su nombre')
-pokemon_inicial = input('Cual sera su pokemon inicial - Bulbasaur, Charmander o Squirtle.')
-
-
+datos_del_equipo_pokemon = Pokemon(nombre,pokemon_inicial,apodo_pokemon)
 while True:
 
     print("Menu principal:") 
@@ -17,9 +18,9 @@ while True:
 
     opcion = int(input('Seleccione una acción: '))
     if opcion == 1:
-        pass
+        datos_del_equipo_pokemon.datos_equipo_pokemon()
     elif opcion ==2:
-        pass 
+        datos_del_equipo_pokemon.buscar_pokemon()
     elif opcion ==3:
         pass
     elif opcion ==4:
