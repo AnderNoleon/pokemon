@@ -20,7 +20,7 @@ while True:
     if opcion == 1:
         datos_del_equipo_pokemon.datos_equipo_pokemon()
     elif opcion ==2:
-        datos_del_equipo_pokemon.buscar_pokemon()
+        pass
     elif opcion ==3:
         pass
     elif opcion ==4:
