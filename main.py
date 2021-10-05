@@ -1,10 +1,16 @@
 #comiendo
 from pokemon import Pokemon
+import os
 
-nombre = input('Cual es su nombre ')
-pokemon_inicial = int(input('Cual sera su pokemon inicial - 1)Bulbasaur 2)Charmander  3)Squirtle '))
-apodo_pokemon = input('Ingrese apodo al pokemon incial  ')
-
+nombre = input('Cual es su nombre: ')
+print('Cual sera su pokemon inicial? ')
+print("1) Bulbasaur")
+print("2) Charmander ")
+print("3) Squirtle ")
+pokemon_inicial = int(input())
+apodo_pokemon = input('Ingrese apodo al pokemon incial: ')
+os.system("pause")
+os.system("cls")
 datos_del_equipo_pokemon = Pokemon(nombre,pokemon_inicial,apodo_pokemon)
 while True:
 
@@ -17,8 +23,10 @@ while True:
     print('5- Salir.')
 
     opcion = int(input('Seleccione una acción: '))
+    os.system("cls")
     if opcion == 1:
         datos_del_equipo_pokemon.datos_equipo_pokemon()
+        os.system("pause")
     elif opcion ==2:
         pass
     elif opcion ==3:
