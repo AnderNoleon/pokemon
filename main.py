@@ -2,6 +2,7 @@
 from pokemon import Pokemon
 import os
 
+
 nombre = input('Cual es su nombre: ')
 print('Cual sera su pokemon inicial? ')
 print("1) Bulbasaur")
@@ -28,11 +29,18 @@ while True:
         datos_del_equipo_pokemon.datos_equipo_pokemon()
         os.system("pause")
     elif opcion ==2:
-        pass
+        print("tu rival es:")
+        datos_del_equipo_pokemon.pokemon_aleatorio()
+        
+        os.system("pause")
+        os.system("cls")
+
+        print("batalla pokemon:")
+        datos_del_equipo_pokemon.menu_batalla()
+        os.system("pause")
     elif opcion ==3:
-        pass
+        datos_del_equipo_pokemon.pokedex()
     elif opcion ==4:
         pass
     elif opcion ==5:
         break
-
