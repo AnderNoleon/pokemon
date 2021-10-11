@@ -108,3 +108,50 @@ class Pokemon:
         for k in self.pokede :
             print(k)
         os.system("pause")
+        # menú de la tienda pokémon 
+        # aún faltan cosas por agregar 
+     def tienda(self):
+        os.system('cls')
+        while True:
+            print('-----Bienvenido(a) a la tienda Pokémon---- \n ')
+            print('1. Objetos curativos ')
+            print('2. Tipos de Poké Ball ')
+            opcion = int(input('Eliga una opcion: '))
+            if opcion == 1:
+                os.system('cls')
+                print('¿Que objeto curativo desea comprar? \n')
+                print('1. POCIÓN: +20 puntos de salud - precio Q 300.00')
+                print('2. SUPERPOCIÓN: +50 puntos de salud - precio Q 700.00')
+                print('3. HIPERPOCIÓN: +200 puntos de salud - precio Q 1,200.00')
+                print('4. RESTAURAR TODO: Vida completa - precio Q 3,000.00')
+                opcion = int(input('Seleccione una opción '))
+                if opcion == 1:
+                    pass
+                elif opcion == 2:
+                    pass
+                elif opcion == 3:
+                    pass
+                elif opcion == 4:
+                    pass
+            elif opcion == 2:
+                os.system('cls')
+                print('¿Que tipo de Poké Ball desea comprar? \n')
+
+                print('1. POKÉBALL: proporción de captura: 1 - precio Q 200.00')
+                print('2. SUPERBALL: Proporcion de captura: 1.5 - precio Q 600.00')
+                print('3. ULTRABALL: proporción de captura: 2 - precio Q 1,200.00')
+                print('4. MASTERBALL: proporción de captura: 255 - precio Q 100,000.00')
+                opcion = int(input('Seleccione una opción '))
+                if opcion == 1:
+                    pass
+                elif opcion == 2:
+                    pass
+                elif opcion == 3:
+                    pass
+                elif opcion == 4:
+                    pass
+            else:
+                break
+
+        
+    
