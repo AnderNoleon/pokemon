@@ -13,6 +13,8 @@ apodo_pokemon = input('Ingrese apodo al pokemon incial: ')
 os.system("pause")
 os.system("cls")
 datos_del_equipo_pokemon = Pokemon(nombre,pokemon_inicial,apodo_pokemon)
+#pokemon salvaje = pokemon (datos...)
+
 while True:
 
     print("Menu principal:") 

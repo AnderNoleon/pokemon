@@ -6,9 +6,11 @@ import os
 
 class Batalla :
     def __init__(self):
+        
         self 
 
     def ataque():
+
         pass
 
     def captura():
