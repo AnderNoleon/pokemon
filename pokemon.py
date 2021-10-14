@@ -53,8 +53,7 @@ class Pokemon:
             puntos=requests.get(item['stat']['url']).json()
             print(f"{puntos['names'][4]['name']}: {item['base_stat']}")
         puntos=requests.get(poke['stats'][0]['stat']['url']).json()
-        self.puntos_sa=f"{puntos['names'][4]['name']} {poke['stats'][0]['base_stat']}"
-        
+        self.puntos_sa=f"{puntos['names'][4]['name']} {poke['stats'][0]['base_stat']}"      
     def pokemon_aleatorio (self):
         poke_ale = random.randint(1,600)
         aleatorio1 = random.randint(1,20)
@@ -81,7 +80,6 @@ class Pokemon:
         puntos=requests.get(pokemo['stats'][0]['stat']['url']).json()
         self.puntos_sar=f"{puntos['names'][4]['name']} {pokemo['stats'][0]['base_stat']}"
         self.pokede.append(f"{pokemo['id']} - {self.poker['names'][6]['name']}")
-
     batalla = Batalla()
     def menu_batalla(self):
         while True:
@@ -95,11 +93,11 @@ class Pokemon:
             print("4. huir")
             opcion =int(input("escoja una opcion: "))
             if opcion ==1 :
-                self.batalla.ataque()
+                batalla.ataque()
             elif opcion ==2:
-                self.batalla.captura()
+                batalla.captura()
             elif opcion ==3:
-                self.batalla.mochila()
+                batalla.mochila()
             else :
                 #self.batalla.huir()
                 break
@@ -110,7 +108,7 @@ class Pokemon:
         os.system("pause")
         # menú de la tienda pokémon 
         # aún faltan cosas por agregar 
-     def tienda(self):
+    def tienda(self):
         os.system('cls')
         while True:
             print('-----Bienvenido(a) a la tienda Pokémon---- \n ')
