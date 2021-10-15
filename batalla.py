@@ -6,17 +6,15 @@ import os
 
 class Batalla :
     def __init__(self):
-        
         self 
 
     def ataque():
-
         pass
 
-    def captura(self):
+    def captura():
         a = 0
         experencia =0
-        if puntos_de_vida > 0:
+       if puntos_de_vida > 0:
             if pokeball > 0:
                 a = ((3 * psmax -2 * psactual) * (rc*rb)) / (3 * psmax)
                 if a >244:
@@ -32,12 +30,22 @@ class Batalla :
         else:
             print('Pokemon dormido')
             return
-    def mochila():
         
+    def mochila():
         pass
 
-    def huir():
-        pass
+    def huir(vel, velr):
+       # v = True
+        f = (vel*128/velr+30)%256
+        a=random.randint(0,255)
+        if f>a:
+            print ("huida exitosa")
+            return True
+          #  v = True
+        else :
+            print("no pudiste huir")
+            return False
+           # v = False
 
     def turnos():
         while True:
