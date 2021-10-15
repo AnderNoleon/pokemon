@@ -1,19 +1,23 @@
 #comiendo
+import random
 from pokemon import Pokemon
+from batalla import Batalla
 import os
-
-
+batalla=Batalla()
+pokedex=[]
 nombre = input('Cual es su nombre: ')
 print('Cual sera su pokemon inicial? ')
 print("1) Bulbasaur")
 print("2) Charmander ")
 print("3) Squirtle ")
-pokemon_inicial = int(input())
-apodo_pokemon = input('Ingrese apodo al pokemon incial: ')
+id= int(input())
+pokemon = Pokemon(id)
+pokemon.apodo_pokemon = input('Ingrese apodo al pokemon incial: ')
 os.system("pause")
+print('las estadisticas de tu primer pokemon')
+pokemon.datos_equipo_pokemon()
+pokemo= pokemon.pokemon()
 os.system("cls")
-datos_del_equipo_pokemon = Pokemon(nombre,pokemon_inicial,apodo_pokemon)
-#pokemon salvaje = pokemon (datos...)
 
 while True:
 
@@ -24,25 +28,51 @@ while True:
     print('3- Pokédex.:')
     print('4-  Tienda.')
     print('5- Salir.')
-
+    
     opcion = int(input('Seleccione una acción: '))
     os.system("cls")
     if opcion == 1:
-        datos_del_equipo_pokemon.datos_equipo_pokemon()
+        pokemon.pokemon()
         os.system("pause")
     elif opcion ==2:
         print("tu rival es:")
-        datos_del_equipo_pokemon.pokemon_aleatorio()
+        idr = random.randint(1,600)
+        pokemonr = Pokemon(idr)
+        pokemonr.pokemon()
         
         os.system("pause")
         os.system("cls")
-
+        vel =pokemon.vel
+        print(vel)
+        velr=pokemonr.vel        
         print("batalla pokemon:")
-        datos_del_equipo_pokemon.menu_batalla()
+        while True:
+            print(pokemon.nombre)
+            print( pokemonr.nombre)
+            os.system("pause")
+            print("Que deseas hacer??")
+            print("1. Atacar")
+            print("2. Capturar al pokemon")
+            print("3. Mochila ")
+            print("4. huir")
+            opcion =int(input("escoja una opcion: "))
+            if opcion ==1 :
+                batalla.ataque()
+            elif opcion ==2:
+                batalla.captura()
+            elif opcion ==3:
+                batalla.mochila()
+            else :
+                r = batalla.huir(vel, velr)
+                if r ==False: 
+                    print("no pudiste huir :c")
+                else :
+                    break
+        #pokemon.menu_batalla()
         os.system("pause")
     elif opcion ==3:
-        datos_del_equipo_pokemon.pokedex()
+        pokemonr.pokedex()
     elif opcion ==4:
-        pass
+        pokemon.tienda()
     elif opcion ==5:
         break
