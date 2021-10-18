@@ -62,12 +62,14 @@ while True:
                 batalla.captura()
             elif opcion ==3:
                 batalla.mochila()
-            else :
+            elif opcion ==4:
                 r = batalla.huir(vel, velr)
                 if r ==False: 
                     print("no pudiste huir :c")
                 else :
                     break
+            else:
+                print("OPCION INCORRECTA")
         #pokemon.menu_batalla()
         os.system("pause")
     elif opcion ==3:

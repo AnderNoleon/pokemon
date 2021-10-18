@@ -14,7 +14,7 @@ class Batalla :
     def captura():
         a = 0
         experencia =0
-       if puntos_de_vida > 0:
+        if puntos_de_vida > 0:
             if pokeball > 0:
                 a = ((3 * psmax -2 * psactual) * (rc*rb)) / (3 * psmax)
                 if a >244:
@@ -34,7 +34,7 @@ class Batalla :
     def mochila():
         pass
 
-    def huir(vel, velr):
+    def huir(vel,velr):
        # v = True
         f = (vel*128/velr+30)%256
         a=random.randint(0,255)
@@ -46,7 +46,6 @@ class Batalla :
             print("no pudiste huir")
             return False
            # v = False
-
     def turnos():
         while True:
             pass
