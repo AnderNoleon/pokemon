@@ -16,6 +16,8 @@ class Pokemon:
         self.batalla=""
         self.pokede=[]
         self.vel=""
+        self.ps =0
+        self.rc = 0
 
     def pokemon (self):
         aleatorio1 = random.randint(1,20)
@@ -26,8 +28,7 @@ class Pokemon:
         self.poke=requests.get(poke ['species']['url']).json()
         print(f"No. {poke['id']}- {self.poke['names'][6]['name']} ")
         print(f"apodo- {self.apodo_pokemon}  nivel es: {self.nivel} " )
-        #aun no esta lo de subir la exp 
-        exp =0
+        exp = poke['base_experience']
         print(f"exp actual {exp}")
         for i in poke['types']:
             tipos=requests.get(i['type']['url']).json()
@@ -40,9 +41,12 @@ class Pokemon:
             print(f"{puntos['names'][4]['name']}: {item['base_stat']}")
         puntos=requests.get(poke['stats'][0]['stat']['url']).json()
         self.puntos_sa=f"{puntos['names'][4]['name']} {poke['stats'][0]['base_stat']}"
-        self.vel=f"{poke['stats'][5]['base_stat']}"
+        self.ps = poke['stats'][0]['base_stat']
+        self.vel = poke['stats'][5]['base_stat']
         self.nombre=f"{self.poke['names'][6]['name']} nivel {self.nivel} - { self.puntos_sa}"
         self.pokede.append(f"{poke['id']} - {self.poke['names'][6]['name']}")
+        r=requests.get(f"https://pokeapi.co/api/v2/pokemon-species/{​​​​​​​​​self.id}​​​​​​​​​").json()
+        self.rc=r["capture_rate"]
 
 
     def datos_equipo_pokemon(self):

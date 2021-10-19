@@ -11,15 +11,20 @@ class Batalla :
     def ataque():
         pass
 
-    def captura():
+    def captura(self, ps,rc):
         a = 0
         experencia =0
-        if puntos_de_vida > 0:
-            if pokeball > 0:
-                a = ((3 * psmax -2 * psactual) * (rc*rb)) / (3 * psmax)
+        #necesito ps
+        if ps > 0:
+            #variable auxiliar con esther
+            if pokeball > 0: 
+                #jairo variable de vida actual , variable externa
+                a = ((3 * ps -2 * psactual) * (rc*rb)) / (3 * psmax)
+                #RC, RB
                 if a >244:
                     print('POKEMON CAPTURADO ')
-                    pokemon_aleatorio()
+                    #Pedir pokemon capturado,
+                    #pokemon_aleatorio()
                     experencia = (expe_poke *nivel_pokemon)/7
                     return 
                 else:
@@ -34,7 +39,7 @@ class Batalla :
     def mochila():
         pass
 
-    def huir(vel,velr):
+    def huir(self,vel,velr):
        # v = True
         f = (vel*128/velr+30)%256
         a=random.randint(0,255)
@@ -43,9 +48,10 @@ class Batalla :
             return True
           #  v = True
         else :
-            print("no pudiste huir")
+            print("OH NO...")
             return False
            # v = False
+           
     def turnos():
         while True:
             pass

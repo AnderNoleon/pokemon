@@ -59,7 +59,9 @@ while True:
             if opcion ==1 :
                 batalla.ataque()
             elif opcion ==2:
-                batalla.captura()
+                ps=pokemonr.ps
+                rc=pokemonr.rc
+                batalla.captura(rc,ps)
             elif opcion ==3:
                 batalla.mochila()
             elif opcion ==4:
