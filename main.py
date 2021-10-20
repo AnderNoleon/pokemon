@@ -6,7 +6,7 @@ import os
 batalla=Batalla()
 pokedex=[]
 nombre = input('Cual es su nombre: ')
-print('Cual sera su pokemon inicial? ')
+print("\033[1;32m"+"Cual es su pokemon inicial?"+'\032[0;m')
 print("1) Bulbasaur")
 print("2) Charmander ")
 print("3) Squirtle ")
@@ -39,11 +39,13 @@ while True:
         idr = random.randint(1,600)
         pokemonr = Pokemon(idr)
         pokemonr.pokemon()
-        
+        rc=pokemonr.rc
+        ps=pokemonr.ps
+        niv=pokemon.nivel
+        pokemonr.nivel = random.randint(niv-5,niv+5)
         os.system("pause")
         os.system("cls")
         vel =pokemon.vel
-        print(vel)
         velr=pokemonr.vel        
         print("batalla pokemon:")
         while True:
@@ -59,19 +61,17 @@ while True:
             if opcion ==1 :
                 batalla.ataque()
             elif opcion ==2:
-                ps=pokemonr.ps
-                rc=pokemonr.rc
+                
                 batalla.captura(rc,ps)
             elif opcion ==3:
+                
                 batalla.mochila()
-            elif opcion ==4:
+            else :
                 r = batalla.huir(vel, velr)
                 if r ==False: 
                     print("no pudiste huir :c")
                 else :
                     break
-            else:
-                print("OPCION INCORRECTA")
         #pokemon.menu_batalla()
         os.system("pause")
     elif opcion ==3:

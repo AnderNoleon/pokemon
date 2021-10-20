@@ -16,10 +16,11 @@ class Pokemon:
         self.batalla=""
         self.pokede=[]
         self.vel=""
-        self.ps =0
-        self.rc = 0
+        self.ps=0
+        self.rc=0
 
     def pokemon (self):
+        self.nivel = 5
         aleatorio1 = random.randint(1,20)
         aleatorio2 = random.randint(1,20)
         pokemon_movimientos1 = requests.get(f"https://pokeapi.co/api/v2/move/{aleatorio1}/").json()
@@ -28,7 +29,7 @@ class Pokemon:
         self.poke=requests.get(poke ['species']['url']).json()
         print(f"No. {poke['id']}- {self.poke['names'][6]['name']} ")
         print(f"apodo- {self.apodo_pokemon}  nivel es: {self.nivel} " )
-        exp = poke['base_experience']
+        exp =poke['base_experience']
         print(f"exp actual {exp}")
         for i in poke['types']:
             tipos=requests.get(i['type']['url']).json()
@@ -41,16 +42,16 @@ class Pokemon:
             print(f"{puntos['names'][4]['name']}: {item['base_stat']}")
         puntos=requests.get(poke['stats'][0]['stat']['url']).json()
         self.puntos_sa=f"{puntos['names'][4]['name']} {poke['stats'][0]['base_stat']}"
-        self.ps = poke['stats'][0]['base_stat']
-        self.vel = poke['stats'][5]['base_stat']
+        self.ps=poke['stats'][0]['base_stat']
+        self.vel=poke['stats'][5]['base_stat']
         self.nombre=f"{self.poke['names'][6]['name']} nivel {self.nivel} - { self.puntos_sa}"
         self.pokede.append(f"{poke['id']} - {self.poke['names'][6]['name']}")
-        r=requests.get(f"https://pokeapi.co/api/v2/pokemon-species/{​​​​​​​​​self.id}​​​​​​​​​").json()
+        r=requests.get(f"https://pokeapi.co/api/v2/pokemon-species/{self.id}").json()
         self.rc=r["capture_rate"]
 
 
+
     def datos_equipo_pokemon(self):
-        self.nivel = 5
         if self.id == 1:
             #nombre_inicial = 'Bulbasur'
             self.id=1
@@ -62,6 +63,8 @@ class Pokemon:
             self.id=7
         else:
             print('Error al eligir pokemon inicial')
+
+
 
     def pokedex(self):
         for k in self.pokede :
