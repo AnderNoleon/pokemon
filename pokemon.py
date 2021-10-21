@@ -72,6 +72,7 @@ class Pokemon:
         os.system("pause")
 
     def tienda(self):
+        dinero_inicial = 500
         os.system('cls')
         while True:
             print('-----Bienvenido(a) a la tienda Pokémon---- \n ')
@@ -86,15 +87,35 @@ class Pokemon:
                 print('2. SUPERPOCIÓN: +50 puntos de salud - precio Q 700.00')
                 print('3. HIPERPOCIÓN: +200 puntos de salud - precio Q 1,200.00')
                 print('4. RESTAURAR TODO: Vida completa - precio Q 3,000.00')
+                print('5. Salir')
                 opcion = int(input('Seleccione una opción '))
                 if opcion == 1:
-                    pass
+                    if dinero_inicial >= 300:
+                        os.system('cls')
+                        print('Desea comprar la POCIÓN ?')
+                        print('1. SI \n2. NO ')
+                        opcion = int(input('Elija una opción. '))
+                        
+                        if opcion == 1:
+                            pass
+                        elif opcion == 2:
+                            print('regresando al menú....\n')
+                            break
+                        else:
+                            continue
+                    else:
+                        print('NO DISPONE DE SUFICIENTE DINERO')
                 elif opcion == 2:
                     pass
                 elif opcion == 3:
                     pass
                 elif opcion == 4:
                     pass
+                elif opcion == 5:
+                    print("\n Saliendo...\n")
+                    break
+                else:
+                    continue
             elif opcion == 2:
                 os.system('cls')
                 print('¿Que tipo de Poké Ball desea comprar? \n')
@@ -103,6 +124,7 @@ class Pokemon:
                 print('2. SUPERBALL: Proporcion de captura: 1.5 - precio Q 600.00')
                 print('3. ULTRABALL: proporción de captura: 2 - precio Q 1,200.00')
                 print('4. MASTERBALL: proporción de captura: 255 - precio Q 100,000.00')
+                print('5. Salir')
                 opcion = int(input('Seleccione una opción '))
                 if opcion == 1:
                     pass
@@ -112,5 +134,13 @@ class Pokemon:
                     pass
                 elif opcion == 4:
                     pass
-            else:
+                elif opcion == 5:
+                    print('\n Saliendo...\n')
+                    break
+                else:
+                    continue
+            elif opcion == 3:
+                print("\n Saliendo...\n")
                 break
+            else:
+                continue

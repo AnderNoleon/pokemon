@@ -123,7 +123,7 @@ class Batalla:
             else :
                 break
         
-    def mochila():
+    def objeto_curativo():
         pass
 
     def huir(self,vel,velr):
