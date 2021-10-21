@@ -3,8 +3,12 @@ import random
 from pokemon import Pokemon
 from batalla import Batalla
 import os
+import winsound
+
 batalla=Batalla()
 pokedex=[]
+winsound.PlaySound('Poke.wav',winsound.SND_ASYNC)
+
 nombre = input('Cual es su nombre: ')
 print("\033[1;32m"+"Cual es su pokemon inicial?"+'\032[0;m')
 print("1) Bulbasaur")
