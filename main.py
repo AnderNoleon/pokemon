@@ -59,7 +59,7 @@ while True:
             print("Que deseas hacer??")
             print("1. Atacar")
             print("2. Capturar al pokemon")
-            print("3. Mochila ")
+            print("3. objeto curativo ")
             print("4. huir")
             opcion =int(input("escoja una opcion: "))
             if opcion ==1 :
@@ -69,7 +69,7 @@ while True:
                 batalla.captura(rc,ps)
             elif opcion ==3:
                 
-                batalla.mochila()
+                batalla.objeto_curativo()
             else :
                 r = batalla.huir(vel, velr)
                 if r ==False: 
