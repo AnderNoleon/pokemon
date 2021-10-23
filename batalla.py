@@ -4,18 +4,20 @@ import json
 import requests
 import os
 
-class Batalla:
+class Batalla :
     def __init__(self):
         self 
 
     def ataque():
         pass
 
-    def captura(self, ps,rc):
+    def captura(self, ps,rc,p,s,u,m):
         a = 0
         experencia =0
-        pokeball = 0
-
+        pokeball=1
+        superball=1
+        ultraball=1
+        masterball =1
         while True:
             print('Eliga una su pokeball')
             print('1. Pokéball ')
@@ -27,8 +29,6 @@ class Batalla:
                 #f
                 #necesito ps
                 if ps > 0:
-                    #variable auxiliar con esther
-                    pokeball = 1
                     if pokeball > 0: 
                         #jairo variable de vida actual , variable externa
                         a = ((3 * ps -2 * ps) * (rc*1)) / (3 * ps)
@@ -37,8 +37,8 @@ class Batalla:
                             print('POKEMON CAPTURADO ')
                             #Pedir pokemon capturado,
                             #pokemon_aleatorio()
-                            #experencia = (expe_poke *nivel_pokemon)/7
-                            return 
+                            #experencia = (expe_poke * nivel_pokemon)/7
+                            break
                         else:
                             print('Pokemon no capturado')
                             batalla = Batalla()
@@ -46,15 +46,13 @@ class Batalla:
                         tienda()
                 else:
                     print('Pokemon dormido')
-                    return                    
+                    break                  
             elif opcion ==2:
                 #batalla.captura(rc,ps)
                 #f
                 #necesito ps
                 if ps > 0:
-                    #variable auxiliar con esther
-                    if pokeball > 0: 
-                        pokeball = 1
+                    if superball > 0: 
                         #jairo variable de vida actual , variable externa
                         a = ((3 * ps -2 * ps) * (rc*1.5)) / (3 * ps)
                         #RC, RB
@@ -73,12 +71,10 @@ class Batalla:
                     print('Pokemon dormido')
                     return    
             elif opcion ==3:
-                                #f
+                #f
                 #necesito ps
                 if ps > 0:
-                    #variable auxiliar con esther
-                    pokeball = 1
-                    if pokeball > 0: 
+                    if ultraball > 0: 
                         #jairo variable de vida actual , variable externa
                         a = ((3 * ps -2 * ps) * (rc*2)) / (3 * ps)
                         #RC, RB
@@ -100,9 +96,7 @@ class Batalla:
                 #f
                 #necesito ps
                 if ps > 0:
-                    #variable auxiliar con esther
-                    pokeball = 1
-                    if pokeball > 0: 
+                    if masterball> 0: 
                         #jairo variable de vida actual , variable externa
                         a = ((3 * ps -2 * ps) * (rc*255)) / (3 * ps)
                         #RC, RB
@@ -111,7 +105,7 @@ class Batalla:
                             #Pedir pokemon capturado,
                             #pokemon_aleatorio()
                             #experencia = (expe_poke *nivel_pokemon)/7
-                            return 
+                            return False
                         else:
                             print('Pokemon no capturado')
                             batalla = Batalla()
@@ -122,11 +116,11 @@ class Batalla:
                     return            
             else :
                 break
-        
-    def objeto_curativo():
+
+    def mochila():
         pass
 
-    def huir(self,vel,velr):
+    def huir(self,vel, velr):
        # v = True
         f = (vel*128/velr+30)%256
         a=random.randint(0,255)
@@ -135,10 +129,10 @@ class Batalla:
             return True
           #  v = True
         else :
-            print("OH NO...")
+            print("no pudiste huir")
             return False
            # v = False
-           
+
     def turnos():
         while True:
             pass
