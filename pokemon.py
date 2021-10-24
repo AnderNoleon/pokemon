@@ -245,3 +245,4 @@ class Pokemon:
                 break
             else:
                 continue
+                

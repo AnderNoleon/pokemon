@@ -3,12 +3,23 @@ import time
 import json 
 import requests
 import os
+from pokemon import Pokemon
 
 class Batalla :
     def __init__(self):
         self 
 
-    def ataque():
+    def datos_combate(self,VI,EB,N):
+        dc = (((VI+2*EB)*N/100)+5
+        return dc
+
+    def puntos_salud_comb(self,VI,EB,N):
+        psc = (((VI+2*EB)*N/100)+10+N)
+        return psc
+
+    def ataque(self,N,A,P,D,B,E):
+        V = random.randint(85,100)
+        daño = 0.01*B*E*V*(((0.2*N*+1)*A*P/25*D)+2)
         pass
 
     def captura(self, ps,rc,p,s,u,m):

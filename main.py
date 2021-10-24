@@ -40,7 +40,7 @@ pokemon.apodo_pokemon = input('Ingrese apodo al pokemon incial: ')
 os.system("pause")
 print('las estadisticas de tu primer pokemon')
 pokemon.datos_equipo_pokemon()
-pokemo= pokemon.pokemon()
+pokemon= pokemon.pokemon()
 os.system("cls")
 
 while True:
@@ -63,18 +63,50 @@ while True:
         winsound.PlaySound('batalla.wav',winsound.SND_ASYNC)
         print("tu rival es:")
         
+        aleatorio1 = random.randint(1,20)
+        aleatorio2 = random.randint(1,20)
+        aleatorio3 = random.randint(1,20)
+        aleatorio4 = random.randint(1,20)
         idr = random.randint(1,600)
         pokemonr = Pokemon(idr)
         pokemonr.pokemon()
         rc=pokemonr.rc
         ps=pokemonr.ps
-        niv=pokemon.nivel
         pokemonr.nivel = random.randint(niv-5,niv+5)
+        nivr = pokemonr.nivel
+        pokemonr_movimientos1 = requests.get(f"https://pokeapi.co/api/v2/move/{aleatorio1}/").json()
+        pokemonr_movimientos2 = requests.get(f"https://pokeapi.co/api/v2/move/{aleatorio2}/").json()
+        pokemonr_movimientos3 = requests.get(f"https://pokeapi.co/api/v2/move/{aleatorio3}/").json()
+        pokemonr_movimientos4 = requests.get(f"https://pokeapi.co/api/v2/move/{aleatorio4}/").json()
+        EBsr = requests.get(f"https://pokeapi.co/api/v2/stat/1/{idr}/").json()
+        EBcr = requests.get(f"https://pokeapi.co/api/v2/stat/2/{idr}/").json()
+        Defr = requests.get(f"https://pokeapi.co/api/v2/stat/3/{idr}/").json()        
+        velr=pokemonr.vel
+        #Calcula los puntos de salud del pokemon salvaje
+        pnsr = batalla.puntos_salud_comb(ps,EBsr,nivr) 
+        #Calcula los puntos de compate del pokemon salvaje
+        dcbr = batalla.datos_combate(rc,EBcr,nivr) 
         os.system("pause")
         os.system("cls")
         vel =pokemon.vel
-        velr=pokemonr.vel        
+        rc1 = pokmeon.rc
+        ps1 = pokemon.ps
+        niv = pokemon.nivel
+        EBsp = requests.get(f"https://pokeapi.co/api/v2/stat/1/{pokemon.id}/").json()
+        Defp = reuqests.get(f"https://pokeapi.co/api/v2/stat/3/{pokemon.id}/").json()
+        EBcp = requests.get(f"https://pokeapi.co/api/v2/stat/2/{pokemon.id}/").json()
+        #Calcula los puntos de salud del pokemon
+        pnsp = batalla.puntos_salud_comb(ps1,EBsp,niv) 
+        #Calcula los puntos de compate del pokemon salvaje
+        dcbp = batalla.datos_combate(rc1,EBcp,niv) 
+
         print("batalla pokemon:")
+        if vel > velr:
+            initial = 1
+        elif vel < velr:
+            initial = 2
+        elif vel == velr:
+            initial = random.randint(1,2)
         while True:
             print(pokemon.nombre)
             print( pokemonr.nombre)
@@ -86,7 +118,136 @@ while True:
             print("4. huir")
             opcion =int(input("escoja una opcion: "))
             if opcion ==1 :
-                batalla.ataque()
+                if initial == 1:
+                    elecmove = int(input('Ingrese el numero del movimiento que desea usar: '))
+                    if elecmove == 1:
+                        movimiento = pokemon.pokemon_movimientos1                        
+                        atactType = requests.get(f"https://pokeapi.co/api/v2/contest-type/{movimiento}/").json()
+                        tip = requests.get(f"https://pokeapi.co/api/v2/type/{pokemon.id}/").json()
+                        tipr = requests.get(f"https://pokeapi.co/api/v2/type/{idr}/").json()
+                        if atactType == tip:
+                            B = 1.5
+                        else:
+                            B = 1
+                        if tipr = "volador":
+                            E = 0
+                        elif tipr = "insecto":
+                            E = 1
+                        elif tipr = "veneno":
+                            E = 2
+                        elif tipr = "electrico":
+                            E = 0
+                        elif tipr = "agua":
+                            E = 2
+                    elif elecmove == 2:
+                        movimiento = pokemon.pokemon_movimientos2                        
+                        atactType = requests.get(f"https://pokeapi.co/api/v2/contest-type/{movimiento}/").json()
+                        tip = requests.get(f"https://pokeapi.co/api/v2/type/{pokemon.id}/").json()
+                        tipr = requests.get(f"https://pokeapi.co/api/v2/type/{idr}/").json()
+                        if atactType == tip:
+                            B = 1.5
+                        else:
+                            B = 1
+                        if tipr = "volador":
+                            E = 0
+                        elif tipr = "insecto":
+                            E = 1
+                        elif tipr = "veneno":
+                            E = 2
+                        elif tipr = "electrico":
+                            E = 0
+                        elif tipr = "agua":
+                            E = 2
+                    s = batalla.ataque(niv,dcbp,rc1,Defp,B,E)
+                    ps = ps - s
+                    if rc > 0:
+                        initial = 2
+                    else:
+                        print('Tu pokemon ha ganaod')
+                elif initial == 2:
+                    elecmove = random.randint(1,4)
+                    if elecmove == 1:
+                        movimiento = pokemonr_movimientos1                        
+                        atactType = requests.get(f"https://pokeapi.co/api/v2/contest-type/{movimiento}/").json()
+                        tip = requests.get(f"https://pokeapi.co/api/v2/type/{idr}/").json()
+                        tipr = requests.get(f"https://pokeapi.co/api/v2/type/{pokemon.id}/").json()
+                        if atactType == tip:
+                            B = 1.5
+                        else:
+                            B = 1
+                        if tipr = "volador":
+                            E = 0
+                        elif tipr = "insecto":
+                            E = 1
+                        elif tipr = "veneno":
+                            E = 2
+                        elif tipr = "electrico":
+                            E = 0
+                        elif tipr = "agua":
+                            E = 2
+                    elif elecmove == 2:
+                        movimiento = pokemonr_movimientos2                        
+                        atactType = requests.get(f"https://pokeapi.co/api/v2/contest-type/{movimiento}/").json()
+                        tip = requests.get(f"https://pokeapi.co/api/v2/type/{idr}/").json()
+                        tipr = requests.get(f"https://pokeapi.co/api/v2/type/{pokemon.id}/").json()
+                        if atactType == tip:
+                            B = 1.5
+                        else:
+                            B = 1
+                        if tipr = "volador":
+                            E = 0
+                        elif tipr = "insecto":
+                            E = 1
+                        elif tipr = "veneno":
+                            E = 2
+                        elif tipr = "electrico":
+                            E = 0
+                        elif tipr = "agua":
+                            E = 2
+                    elif elecmove == 3:
+                        movimiento = pokemonr_movimientos3                        
+                        atactType = requests.get(f"https://pokeapi.co/api/v2/contest-type/{movimiento}/").json()
+                        tip = requests.get(f"https://pokeapi.co/api/v2/type/{idr}/").json()
+                        tipr = requests.get(f"https://pokeapi.co/api/v2/type/{pokemon.id}/").json()
+                        if atactType == tip:
+                            B = 1.5
+                        else:
+                            B = 1
+                        if tipr = "volador":
+                            E = 0
+                        elif tipr = "insecto":
+                            E = 1
+                        elif tipr = "veneno":
+                            E = 2
+                        elif tipr = "electrico":
+                            E = 0
+                        elif tipr = "agua":
+                            E = 2
+                    elif elecmove == 4:
+                        movimiento = pokemonr_movimientos4                       
+                        atactType = requests.get(f"https://pokeapi.co/api/v2/contest-type/{movimiento}/").json()
+                        tip = requests.get(f"https://pokeapi.co/api/v2/type/{idr}/").json()
+                        tipr = requests.get(f"https://pokeapi.co/api/v2/type/{pokemon.id}/").json()
+                        if atactType == tip:
+                            B = 1.5
+                        else:
+                            B = 1
+                        if tipr = "volador":
+                            E = 0
+                        elif tipr = "insecto":
+                            E = 1
+                        elif tipr = "veneno":
+                            E = 2
+                        elif tipr = "electrico":
+                            E = 0
+                        elif tipr = "agua":
+                            E = 2        
+                    r = batalla.ataque(nivr,dcbr,rc,Defr,B,E)
+                    ps1 = ps1 - r
+                    if ps1 > 0:
+                        initial = 1
+                    else:
+                        print("Pokemon salvaje gana.")
             elif opcion ==2:
                 pokeball=0
                 superball=0
