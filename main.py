@@ -129,15 +129,15 @@ while True:
                             B = 1.5
                         else:
                             B = 1
-                        if tipr = "volador":
+                        if tipr == "volador":
                             E = 0
-                        elif tipr = "insecto":
+                        elif tipr == "insecto":
                             E = 1
-                        elif tipr = "veneno":
+                        elif tipr == "veneno":
                             E = 2
-                        elif tipr = "electrico":
+                        elif tipr == "electrico":
                             E = 0
-                        elif tipr = "agua":
+                        elif tipr == "agua":
                             E = 2
                     elif elecmove == 2:
                         movimiento = pokemon.pokemon_movimientos2                        
@@ -148,15 +148,15 @@ while True:
                             B = 1.5
                         else:
                             B = 1
-                        if tipr = "volador":
+                        if tipr == "volador":
                             E = 0
-                        elif tipr = "insecto":
+                        elif tipr == "insecto":
                             E = 1
-                        elif tipr = "veneno":
+                        elif tipr == "veneno":
                             E = 2
-                        elif tipr = "electrico":
+                        elif tipr == "electrico":
                             E = 0
-                        elif tipr = "agua":
+                        elif tipr == "agua":
                             E = 2
                     s = batalla.ataque(niv,dcbp,rc1,Defp,B,E)
                     ps = ps - s
@@ -175,15 +175,15 @@ while True:
                             B = 1.5
                         else:
                             B = 1
-                        if tipr = "volador":
+                        if tipr == "volador":
                             E = 0
-                        elif tipr = "insecto":
+                        elif tipr == "insecto":
                             E = 1
-                        elif tipr = "veneno":
+                        elif tipr == "veneno":
                             E = 2
-                        elif tipr = "electrico":
+                        elif tipr == "electrico":
                             E = 0
-                        elif tipr = "agua":
+                        elif tipr == "agua":
                             E = 2
                     elif elecmove == 2:
                         movimiento = pokemonr_movimientos2                        
@@ -194,15 +194,15 @@ while True:
                             B = 1.5
                         else:
                             B = 1
-                        if tipr = "volador":
+                        if tipr == "volador":
                             E = 0
-                        elif tipr = "insecto":
+                        elif tipr == "insecto":
                             E = 1
-                        elif tipr = "veneno":
+                        elif tipr == "veneno":
                             E = 2
-                        elif tipr = "electrico":
+                        elif tipr == "electrico":
                             E = 0
-                        elif tipr = "agua":
+                        elif tipr == "agua":
                             E = 2
                     elif elecmove == 3:
                         movimiento = pokemonr_movimientos3                        
@@ -213,15 +213,15 @@ while True:
                             B = 1.5
                         else:
                             B = 1
-                        if tipr = "volador":
+                        if tipr == "volador":
                             E = 0
-                        elif tipr = "insecto":
+                        elif tipr == "insecto":
                             E = 1
-                        elif tipr = "veneno":
+                        elif tipr == "veneno":
                             E = 2
-                        elif tipr = "electrico":
+                        elif tipr == "electrico":
                             E = 0
-                        elif tipr = "agua":
+                        elif tipr == "agua":
                             E = 2
                     elif elecmove == 4:
                         movimiento = pokemonr_movimientos4                       
@@ -232,15 +232,15 @@ while True:
                             B = 1.5
                         else:
                             B = 1
-                        if tipr = "volador":
+                        if tipr == "volador":
                             E = 0
-                        elif tipr = "insecto":
+                        elif tipr == "insecto":
                             E = 1
-                        elif tipr = "veneno":
+                        elif tipr == "veneno":
                             E = 2
-                        elif tipr = "electrico":
+                        elif tipr == "electrico":
                             E = 0
-                        elif tipr = "agua":
+                        elif tipr == "agua":
                             E = 2        
                     r = batalla.ataque(nivr,dcbr,rc,Defr,B,E)
                     ps1 = ps1 - r

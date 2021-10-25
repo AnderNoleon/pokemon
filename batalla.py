@@ -10,7 +10,7 @@ class Batalla :
         self 
 
     def datos_combate(self,VI,EB,N):
-        dc = (((VI+2*EB)*N/100)+5
+        dc = ((VI+2*EB)*N/100)+5
         return dc
 
     def puntos_salud_comb(self,VI,EB,N):
