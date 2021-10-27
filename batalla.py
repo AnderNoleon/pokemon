@@ -3,13 +3,16 @@ import time
 import json 
 import requests
 import os
-from pokemon import Pokemon
+#from pokemon import Pokemon
 
 class Batalla :
     def __init__(self):
         self 
 
     def datos_combate(self,VI,EB,N):
+        #n = nivel actual del 
+        #vi valor indicual del combate respectivo
+        #em es la estadistica base del
         dc = ((VI+2*EB)*N/100)+5
         return dc
 

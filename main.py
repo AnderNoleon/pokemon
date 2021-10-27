@@ -1,30 +1,32 @@
 import random
 from pokemon import Pokemon
 from batalla import Batalla
+import requests
 import os
+import json
 import winsound #canciones 
 import cv2
 import numpy as np
 from ffpyplayer.player import MediaPlayer
-video_path="intro.mp4"
-def PlayVideo(video_path):
-    video=cv2.VideoCapture(video_path)
-    player = MediaPlayer(video_path)
-    while True:
-        grabbed, frame=video.read()
-        audio_frame, val = player.get_frame()
-        if not grabbed:
-            print("End of video")
-            break
-        if cv2.waitKey(30) & 0xFF == ord("q"):
-            break
-        cv2.imshow("Video", frame)
-        if val != 'eof' and audio_frame is not None:
-            #audio
-            img, t = audio_frame
-    video.release()
-    cv2.destroyAllWindows()
-PlayVideo(video_path)
+#video_path="intro.mp4"
+#def PlayVideo(video_path):
+#    video=cv2.VideoCapture(video_path)
+#    player = MediaPlayer(video_path)
+#    while True:
+#        grabbed, frame=video.read()
+#        audio_frame, val = player.get_frame()
+#        if not grabbed:
+#            print("End of video")
+#            break
+#        if cv2.waitKey(30) & 0xFF == ord("q"):
+#            break
+#        cv2.imshow("Video", frame)
+#        if val != 'eof' and audio_frame is not None:
+#            #audio
+#            img, t = audio_frame
+#    video.release()
+#    cv2.destroyAllWindows()
+#PlayVideo(video_path)
 
 batalla=Batalla()
 pokedex=[]
@@ -72,29 +74,28 @@ while True:
         pokemonr.pokemon()
         rc=pokemonr.rc
         ps=pokemonr.ps
-        pokemonr.nivel = random.randint(niv-5,niv+5)
+        #niv = pokemon.nivel    
+        #pokemonr.nivel = random.randint(niv-5,niv+5)
         nivr = pokemonr.nivel
         pokemonr_movimientos1 = requests.get(f"https://pokeapi.co/api/v2/move/{aleatorio1}/").json()
         pokemonr_movimientos2 = requests.get(f"https://pokeapi.co/api/v2/move/{aleatorio2}/").json()
         pokemonr_movimientos3 = requests.get(f"https://pokeapi.co/api/v2/move/{aleatorio3}/").json()
         pokemonr_movimientos4 = requests.get(f"https://pokeapi.co/api/v2/move/{aleatorio4}/").json()
-        EBsr = requests.get(f"https://pokeapi.co/api/v2/stat/1/{idr}/").json()
-        EBcr = requests.get(f"https://pokeapi.co/api/v2/stat/2/{idr}/").json()
-        Defr = requests.get(f"https://pokeapi.co/api/v2/stat/3/{idr}/").json()        
+        EBsr =pokemonr.ps
+        EBcr = pokemonr.ak
+        Defr = pokemonr.df
         velr=pokemonr.vel
         #Calcula los puntos de salud del pokemon salvaje
         pnsr = batalla.puntos_salud_comb(ps,EBsr,nivr) 
         #Calcula los puntos de compate del pokemon salvaje
-        dcbr = batalla.datos_combate(rc,EBcr,nivr) 
-        os.system("pause")
-        os.system("cls")
+        dcbr = batalla.datos_combate(N,rc,EBcr,nivr) 
         vel =pokemon.vel
         rc1 = pokmeon.rc
         ps1 = pokemon.ps
         niv = pokemon.nivel
-        EBsp = requests.get(f"https://pokeapi.co/api/v2/stat/1/{pokemon.id}/").json()
-        Defp = reuqests.get(f"https://pokeapi.co/api/v2/stat/3/{pokemon.id}/").json()
-        EBcp = requests.get(f"https://pokeapi.co/api/v2/stat/2/{pokemon.id}/").json()
+        EBsp = pokemon.ps
+        Defp = pokemon.df
+        EBcp = pokemon.ak
         #Calcula los puntos de salud del pokemon
         pnsp = batalla.puntos_salud_comb(ps1,EBsp,niv) 
         #Calcula los puntos de compate del pokemon salvaje

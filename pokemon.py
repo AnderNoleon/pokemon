@@ -15,9 +15,11 @@ class Pokemon:
         self.poke=""
         self.batalla=""
         self.pokede=[]
-        self.vel=""
+        self.vel=0
         self.ps=0
         self.rc=0
+        self.ak = 0
+        self.df =0 
 
     def pokemon (self):
         self.nivel = 5
@@ -42,7 +44,10 @@ class Pokemon:
             print(f"{puntos['names'][4]['name']}: {item['base_stat']}")
         puntos=requests.get(poke['stats'][0]['stat']['url']).json()
         self.puntos_sa=f"{puntos['names'][4]['name']} {poke['stats'][0]['base_stat']}"
+        #ataco
         self.ps=poke['stats'][0]['base_stat']
+        self.ak=poke['stats'][1]['base_stat']
+        self.df=poke['stats'][2]['base_stat']
         self.vel=poke['stats'][5]['base_stat']
         self.nombre=f"{self.poke['names'][6]['name']} nivel {self.nivel} - { self.puntos_sa}"
         self.pokede.append(f"{poke['id']} - {self.poke['names'][6]['name']}")
